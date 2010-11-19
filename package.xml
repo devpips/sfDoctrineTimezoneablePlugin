@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>sfDoctrineTimezoneablePlugin</name>
+ <channel>plugins.symfony-project.org</channel>
+ <summary>Apply automatic timezone magic to Doctrine.</summary>
+ <description>Do automatic conversion of time between timezones by storing all time fields in the database as UTC. Then pull it back out in the system/user&apos;s timezone.</description>
+ <lead>
+  <name>Stephen Craton</name>
+  <user>scraton</user>
+  <email>scraton@gmail.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2010-11-19</date>
+ <time>09:55:19</time>
+ <version>
+  <release>1.0.0</release>
+  <api>1.0.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/mit-license.html">MIT</license>
+ <notes>
+&lt;none&gt;
+ </notes>
+ <contents>
+  <dir baseinstalldir="." name="/">
+   <file baseinstalldir="." md5sum="5d5f37c06b18748800289b74b94b620a" name="config/config.php" role="php" />
+   <file baseinstalldir="." md5sum="eefb1d4c21372fe0758502b7ef1b6a62" name="lib/sfDoctrineTimezoneRecord.class.php" role="php" />
+   <file baseinstalldir="." md5sum="552fe2dd0d6e9bc0a61058f3f839d7d5" name="lib/sfEvents_Timezoneable_Listener.php" role="php" />
+   <file baseinstalldir="." md5sum="d8d2236aed724a7f0f2f74c91cf9d279" name="lib/listener/Timezoneable.php" role="php" />
+   <file baseinstalldir="." md5sum="1255280a9a06a93b8308e05c17e6690d" name="lib/template/Timezoneable.php" role="php" />
+   <file baseinstalldir="." md5sum="1e870fbae0f0ae689e646e8ad90303fc" name="test/unit/sfDoctrineTimezoneablePluginTest.php" role="php" />
+   <file baseinstalldir="." md5sum="d41d8cd98f00b204e9800998ecf8427e" name="LICENSE" role="data" />
+   <file baseinstalldir="." md5sum="03ca2e2e54f18c9208e85673d61b3047" name="README" role="data" />
+   <file baseinstalldir="." md5sum="03ca2e2e54f18c9208e85673d61b3047" name="README.markdown" role="data" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0</min>
+   </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.3.0</min>
+    <max>1.5.0</max>
+    <exclude>1.5.0</exclude>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>1.0.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2010-11-19</date>
+   <license uri="http://www.opensource.org/licenses/mit-license.html">MIT</license>
+   <notes>
+&lt;none&gt;
+   </notes>
+  </release>
+ </changelog>
+</package>
