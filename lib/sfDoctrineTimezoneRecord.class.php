@@ -59,6 +59,10 @@ abstract class sfDoctrineTimezoneRecord extends sfDoctrineRecord {
 			$type = $this->getTable()->getTypeOf($fieldName);
 			if($type == 'date' || $type == 'timestamp' || $type == 'datetime'){
 				$date = parent::get($fieldName, $load);
+				
+				if($date === null)
+					return null;
+				
 				$dt   = new DateTime($date, new DateTimeZone(self::$_dbTimezone));
 				$tz   = new DateTimeZone(self::getDefaultTimezone());
 				
@@ -76,7 +80,7 @@ abstract class sfDoctrineTimezoneRecord extends sfDoctrineRecord {
 	}
 	
 	public function set($fieldName, $value, $load = true){
-		if($this->getTable()->hasField($fieldName)){
+		if($this->getTable()->hasField($fieldName) && $value !== null){
 			$type = $this->getTable()->getTypeOf($fieldName);
 			if($type == 'date' || $type == 'timestamp' || $type == 'datetime'){
 				$dt = new DateTime($value, new DateTimeZone(self::getDefaultTimezone()));
