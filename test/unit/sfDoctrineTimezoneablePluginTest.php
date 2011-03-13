@@ -26,7 +26,7 @@ if(!defined('TEST_CLASS') || !class_exists(TEST_CLASS)) {
 Doctrine_Core::getTable(TEST_CLASS)->findAll()->delete();
 
 // start tests
-$t = new lime_test(23, new lime_output_color());
+$t = new lime_test(22, new lime_output_color());
 
 // let's play with the user object firstly
 
@@ -115,7 +115,6 @@ $t->is($q->fetchOne()->getStartDate(), '2010-06-15 00:00:00', '->fetchOne() load
 $q = Doctrine_Query::create()
        ->from('EventOccurence e')
        ->update()
-       ->set('e.impact', 1)
        ->where('e.start_date = ?', '2010-06-15 00:00:00')
        ->execute();
 $e = Doctrine_Query::create()
@@ -123,7 +122,6 @@ $e = Doctrine_Query::create()
        ->where('e.start_date = ?', '2010-06-15 00:00:00')
        ->fetchOne();
 $t->is($e->getId(), $event_id, '->fetchOne() still returns the correct event');
-$t->is($e->getImpact(), 1, '->getImpact() was correctly updated');
 
 // apparently there's an issue with DST handling, let's see....
 $sf_user->setTimezone('America/New_York');
@@ -202,7 +200,6 @@ $eo->save();
 $t->ok($eo->getId() !== false, '->save() works ok even without specificying a created_at or updated_at');
 
 
-
 // test object creation
 function _create_object()
 {
@@ -214,8 +211,7 @@ function _create_object()
   }
 
   $e = new $classname();
-  $e->setEvent(EventTable::lookupEvent('Test Event', 'USD', 'US', '% m/m'));
-  $e->setImpact(1);
+  $e->setEvent(EventTable::createEvent('Test Event', 'USD', 'US', '% m/m', 1));
   $e->setStartDate(date('Y-m-d H:i:s'));
   return $e;
 }
